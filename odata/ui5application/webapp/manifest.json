@@ -1,0 +1,208 @@
+{
+  "_version": "1.49.0",
+  "sap.app": {
+    "id": "ui5application",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.9.2",
+      "toolsId": "47717409-e594-4097-8776-935f86f9c244"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZKA_ODATA_APP_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.120.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ui5application.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      },
+      "state": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/state.json"
+      },
+      "carsData":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/cardata.json"
+      },
+      "search":{
+        "type":"sap.ui.model.json.JSONModel",
+        "uri":"model/searchcars.json"
+      },
+      "ticket":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/ticket.json"
+      },
+      "SoldItems":{
+        "type":"sap.ui.model.json.JSONModel",
+        "uri":"model/ticket.json"
+      },
+      "userdata":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/userdata.json"
+      },
+      "puchaseddata":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/puchaseddata.json"
+      },
+      "lsolditems":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/lsolditems.json"
+      },
+      "pie":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/pie.json"
+      },
+      "billdata":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/billdata.json"
+      },
+      "allPurchasedata":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/allPurchasedata.json"
+      },
+      "carDetaisPopup":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/carDetails.json"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "ui5application.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteHome",
+          "pattern": "",
+          "target": [
+            "TargetHome"
+          ]
+        },
+        {
+          "name": "AdminPage",
+          "pattern": "AdminPage",
+          "target": [
+            "TargetAdmin"
+          ]
+        },
+        {
+          "name": "ConsumerPage",
+          "pattern": "ConsumerPage/{id}",
+          "target": [
+            "TargetConsumer"
+          ]
+        },
+        {
+          "name": "PDFpage",
+          "pattern": "PDFpage",
+          "target": [
+            "TargetPDFpage"
+          ]
+        }
+
+      ],
+      "targets": {
+        "TargetHome": {
+          "viewType": "XML",
+          "transition": "slide",
+          "viewId": "Home",
+          "viewName": "Home"
+        },
+        "TargetAdmin": {
+          "viewType": "XML",
+          "transition": "slide",
+          "viewId": "Admin",
+          "viewName": "Admin"
+        },
+        "TargetConsumer": {
+          "viewType": "XML",
+          "transition": "flip",
+          "viewId": "Consumer",
+          "viewName": "Consumer"
+        },
+        "TargetPDFpage": {
+          "viewType": "XML",
+          "transition": "flip",
+          "viewId": "Pdf",
+          "viewName": "Pdf"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "ui5application.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

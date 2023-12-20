@@ -1,0 +1,41 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+>
+<Dialog
+    contentHeight="70%"
+    contentWidth="60%"
+    icon="sap-icon://overview-chart"
+   
+    state="Information"
+    
+    title="OVERVIEW"
+    
+
+>
+    <beginButton>
+        
+    </beginButton>
+    <buttons>
+        <Button text="Close" press="oSoldClose"/>
+    </buttons>
+    <content>
+        <mvc:XMLView viewName="ui5application.view.Chart"></mvc:XMLView>
+
+                    <List items="{state>/}" headerText="PREVIOUS SOLD ITEMS">
+
+                     <ObjectListItem  title="{state>title}" intro="{state>price}"  icon="{state>image}">
+
+                    </ObjectListItem>
+
+                    </List>    
+    </content>
+    <customHeader>
+    </customHeader>
+    <endButton>
+    </endButton>
+    <subHeader>
+    </subHeader>
+</Dialog>
+</c:FragmentDefinition>

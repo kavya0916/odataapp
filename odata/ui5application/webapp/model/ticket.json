@@ -1,0 +1,112 @@
+{
+    "type":[{
+        "name":"Sedan"
+    },
+    {
+        "name":"SUV"
+    },
+    {
+        "name":"Sports"
+    }] ,
+    "Name":[{
+        "name":"Porsche"
+    },{
+        "name":"BMW"
+    },
+    {
+        "name":"Benz"
+    },
+    {
+        "name":"Toyota"
+    },
+    {
+        "name":"LandRover"
+    },
+    {
+        "name":"Ford"
+    },
+    {
+        "name":"Porsche"
+    },
+    {
+        "name":"Lexus"
+    },
+    {
+        "name":"Jaguar"
+    },
+    {
+        "name":"Mahindra"
+    },
+    {
+        "name":"TaTa"
+    },
+    {
+        "name":"Mitsubishi"
+    },
+    {
+        "name":"Kia"
+    },
+    {
+        "name":"Lamborghini"
+    },
+    {
+        "name":"Ferrari"
+    }],
+    "Model":[{
+        "name":"Mercedes-Benz C-Class"
+    },
+    {
+        "name":"BMW 3 Series"
+    },
+    {
+        "name":"Audi A6"
+    },
+    {
+        "name":"Porsche Macan"
+    },
+    {
+        "name":"Lexus ES"
+    },
+    {
+        "name":"Jaguar XF"
+    },
+    {
+        "name":"Toyota Fortuner"
+    },
+    {
+        "name":"Land Rover DEFENDER"
+    },
+    {
+        "name":"Mahindra XUV700"
+    },
+    {
+        "name":"TaTa Harrier"
+    },
+    {
+        "name":"Mitsubishi Pajero"
+    },
+    {
+        "name":"Kia Seltos"
+    },
+    {
+        "name":"Lamborghini Aventador"
+    },
+    {
+        "name":"Ferrari F8 Tributo"
+    },
+    {
+        "name":"Toyota Supra"
+    },
+    {
+        "name":"Ford Mustang"
+    },
+    {
+        "name":"McLaren GT"
+    },
+    {
+        "name":"Nissan GT-R"
+    }],
+
+    "newTickets":[]
+
+}

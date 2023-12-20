@@ -1,0 +1,42 @@
+<mvc:View controllerName="ui5application.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:form="sap.ui.layout.form">
+    <App backgroundImage="https://wallpaper.dog/large/10801477.jpg" backgroundOpacity="0.4" id="Home">
+        <pages>
+        <Page class="HomePage" backgroundDesign="Transparent" title="CAR SHOWROOM" titleLevel="H1" 
+        titleAlignment="Center">
+        <Panel backgroundDesign="Transparent">
+         
+         <HeaderContainer class="HomeHeader">
+             
+             <Button text="Sign up" press="oClick" type="Emphasized"/>
+            
+         </HeaderContainer>
+          
+         </Panel>
+ 
+         <Panel id="LoginPanel" class="LoginPanel" backgroundDesign="Transparent">
+         
+         <Title text="Login" textAlign="Center" width="300px" class="HomeLoginText"/>
+             <form:SimpleForm id="HomeLoginform">
+                 <form:content>
+                     <Input placeholder="Enter Your UserId" id="Username" liveChange="UserName" />
+                     <Label/>
+                     <Input placeholder="Password" id="Password" liveChange="Password" 
+                     type="Password"/>
+                     <Label/>
+ 
+                     <Button text="Login" press="oLogin"/>
+                 </form:content>
+             </form:SimpleForm>
+       
+         </Panel>
+         <Panel visible="false">
+             <List items="{/ZuserSet}">
+                 <ObjectListItem title="{Name}"/>
+             </List>
+         </Panel>
+         </Page>
+        </pages> 
+     </App>
+</mvc:View>

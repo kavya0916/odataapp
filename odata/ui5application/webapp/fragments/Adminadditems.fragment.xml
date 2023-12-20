@@ -1,0 +1,91 @@
+<c:FragmentDefinition xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:file="sap.ui.unified">
+
+<Dialog
+    state="Information"
+    title="CAR-DETAILS" contentWidth="700px" contentHeight="1000px">
+    <beginButton>
+        
+    </beginButton>
+    <buttons>
+    <Button text="Add" press="AddCar" />
+    <Button text="Cancel" press="oClose"/>
+    </buttons>
+    <content>
+
+        <form:SimpleForm editable="true" class="AddCarForm">
+                    <Label text="Brand Name" class="FormLabels"/><Input placeholder="Brand Car Name" required="true" id="carBrandName" liveChange="carBrandName"/>
+                    <Label text="Title" class="FormLabels"/><Input placeholder="Car model name" required="true" id="carModelName" liveChange="carModelName"/>
+                    <Label text="Engine" class="FormLabels"/><Input placeholder="Engine detail" required="true" id="carEngine" liveChange="carEngine" type="Number"/>
+                    <Label text="Car Type" class="FormLabels"/>
+            <ComboBox   placeholder="--Select--"
+                    required="true" id="carType">
+                <items>
+                    <c:Item key="type"
+                        text="Sedan"
+                    />
+
+                    <c:Item key="type"
+                        text="SUV"
+                    />
+
+                    <c:Item key="type"
+                        text="Sports"
+                    />
+                </items>
+            </ComboBox>
+                <Label text="Milage" class="FormLabels"/><Input placeholder="Milage of the car" required="true" id="carMilage" liveChange="carMilage" type="Number"/>
+                <Label text="Seating Capacity" class="FormLabels"/><Input placeholder="Seat capacity of the car" required="true" id="carSeat" liveChange="carSeat"  type="Number"/>
+                <Label text="Fuel Type" class="FormLabels"/>
+                <ComboBox   placeholder="--Select--"
+                    required="true" id="carFuel">
+                <items>
+                    <c:Item key="type"
+                        text="Diesel"
+                    />
+
+                    <c:Item key="type"
+                        text="Petrol"
+                    />
+                </items>
+            </ComboBox>
+
+                <Label text="Transmission" class="FormLabels"/>
+
+            <ComboBox   placeholder="--Select--"
+                    required="true" id="carTransmission">
+                <items>
+                    <c:Item key="type"
+                        text="Automatic"
+                    />
+
+                    <c:Item key="type"
+                        text="Manual"
+                    />
+                </items>
+            </ComboBox>
+
+
+                <Label text="Air bags" class="FormLabels"/><Input placeholder="Car Air bags Detail" type="Number" required="true" id="carAirbags" liveChange="carAirbags"/>
+                <Label text="Price" class="FormLabels"/><Input placeholder="Car Price in INR-/" type="Number" required="true" id="carPrice" liveChange="carPrice"/>
+                <Label text="Quantity" class="FormLabels"/><Input placeholder="How many quentities to add" type="Number" required="true" id="carQty" liveChange="carQty"/>
+
+                <Label text=" Car Image" class="FormLabels"/>
+               <file:FileUploader   placeholder="--image--" uploadOnChange="true" change='CarImagePicked' id="carImagefile"/>
+               <Button text="Upload"  press='UploadCarImage'/>
+               <Label text=" Car Logo" class="FormLabels"/>
+               <file:FileUploader   placeholder="--logo--" uploadOnChange="true" change='CarLogoPicked' id="carLogofile"/>
+               <Button text="Upload"  press='UploadCarLogo'/>
+                <Label/>
+   <GenericTile frameType='TwoByOne' id="GenericTilebackground" />
+    <GenericTile frameType="TwoThirds" id="GenericTilebackground2" />
+    
+    </form:SimpleForm>
+ 
+    </content>
+    <subHeader>
+    </subHeader>
+</Dialog>
+</c:FragmentDefinition>

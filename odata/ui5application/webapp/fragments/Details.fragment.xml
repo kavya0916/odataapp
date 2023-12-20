@@ -1,0 +1,78 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+>
+<Dialog
+    contentHeight=""
+    contentWidth=""
+    draggable="false"
+    escapeHandler=""
+    horizontalScrolling="true"
+    icon=""
+    resizable="false"
+    showHeader="true"
+    state="None"
+    stretch="false"
+    title=""
+    type="Standard"
+    verticalScrolling="true"
+>
+    <beginButton>
+        
+    </beginButton>
+    <buttons>
+    </buttons>
+    <content>
+
+    <form:SimpleForm id="productInfo4" >
+     <form:title >
+            <c:Title text="{carDetaisPopup>Title}" class="itemTitle"/>
+        </form:title>
+        <VBox >
+            <Image src="{carDetaisPopup>Cimage}" width="850px" />
+        
+            <Text text="Specifications" class="itemSpecific2"/>
+             
+           
+        </VBox>
+        <Label/>
+        <!-- <HBox alignItems="Center"> -->
+     
+            
+            <Label text="Name" class="SpecificationfontsData"/><Text text="{carDetaisPopup>Title}" class="SpecificationfontsData"/>
+                <Label text="Type" class="SpecificationfontsData"/><Text text="{carDetaisPopup>Type}" class="SpecificationfontsData"/>
+                <Label text="Engine" class="SpecificationfontsData"/><Text text="{carDetaisPopup>Engine}" class="SpecificationfontsData"/>
+                <Label text="Transmission" class="SpecificationfontsData"/><Text text="{carDetaisPopup>Transmission}" class="SpecificationfontsData"/>
+                <Label text="Fuel" class="SpecificationfontsData"/><Text text="{carDetaisPopup>Fuel}" class="SpecificationfontsData"/>
+                <Label text="Mileage" class="SpecificationfontsData"/><Text text="{carDetaisPopup>Mileage}" class="SpecificationfontsData"/>
+                <Label text="Airbags" class="SpecificationfontsData"/><Text text="{carDetaisPopup>Airbags}" class="SpecificationfontsData"/>
+                <Label text="Price" class="SpecificationfontsData"/><Text text="Rs.{carDetaisPopup>Price}" class="SpecificationfontsData"/>
+                     
+            <!-- <Button text="Add to Bill" press="oBillItems"/> -->
+        <!-- </HBox> -->
+    </form:SimpleForm>
+
+    </content>
+    <customHeader>
+    </customHeader>
+    <endButton>
+    <Button icon="sap-icon://decline" press="oCarClose" id="oCarClose"/>
+    </endButton>
+    <subHeader >
+    <Bar
+        design="Auto"
+    >
+        <contentLeft>
+    <Text text="Product Detail"/>
+            
+        </contentLeft>
+        <contentMiddle>
+        </contentMiddle>
+        <contentRight>
+        </contentRight>
+    </Bar>
+
+    </subHeader>
+</Dialog>
+</c:FragmentDefinition>

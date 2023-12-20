@@ -1,0 +1,23 @@
+{
+    "cardata":
+    [{ "carType" :"Luxury Cars",
+                  "Cars":
+                  []
+              },
+
+
+             { 
+                    "carType" :"SUV Cars",
+                    "Cars":
+                    []
+                },
+
+
+                { 
+                    "carType" :"Sports Cars",
+                    "Cars":
+                    [
+                        
+                    ]
+                 }]
+}

@@ -1,0 +1,72 @@
+<mvc:View
+	controllerName="ui5application.controller.Admin"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+>
+
+<App>
+<!-- <pages> -->
+    <Page backgroundDesign="Transparent"  title="SHOWROOM-PRODUCTS" titleLevel="H1" titleAlignment="Center">
+            
+            	<headerContent>
+
+                    <Button icon="sap-icon://delete" press="onDeleteMultiple1"></Button>
+            <Button icon="sap-icon://filter" text="NEW-TICKETS" class="AdminPanel2Item" press="oTicketPopUp" type="Emphasized"/>
+             
+			    <Button icon="sap-icon://log" press="LogOff"/>
+
+		        </headerContent>
+
+    <Panel backgroundDesign="Solid">            
+        <SearchField type="text" search='onSearch' enableSuggestions='true' suggestionItems='{cardata>/}' suggest='onSuggest' width="1200px" >
+                        <suggestionItems>
+                <SuggestionItem text="{cardata>Title}" key="{cardata>Title}" description="{cardata>type}" />
+            </suggestionItems>
+        </SearchField>
+     <List id="batchList" items="{cardata>/}" backgroundDesign="Transparent" itemPress="oItemSelect" mode="MultiSelect" >
+    <ObjectListItem
+        
+        intro="{cardata>Brandname}"
+        number="Qnt:{cardata>Quantity}"
+         numberState="{path:'cardata>Quantity',
+                            formatter:'.colorFormatter'}"
+        title="{cardata>Title}" type="Active"
+        numberUnit=": Item Id : {cardata>Carid}"
+        
+     >
+    <attributes>
+        <ObjectAttribute
+            active="true"
+            text="{cardata>Cartype}"
+            title="Car Type"
+        >
+           
+        </ObjectAttribute>
+    </attributes>
+    </ObjectListItem>
+    </List>    
+
+    </Panel>
+    <footer>
+             <Bar
+            design="Footer"
+        >
+            <contentLeft>
+            
+            </contentLeft>
+            <contentMiddle>
+            </contentMiddle>
+            <contentRight>
+                <Button text="ADD-ITEMS" icon="sap-icon://add" class="AdminPanel2Item1" press="AdminAddItems"/> 
+            
+            </contentRight>
+        </Bar>
+          
+    </footer>
+    </Page>
+<!-- </pages> -->
+</App>
+</mvc:View>

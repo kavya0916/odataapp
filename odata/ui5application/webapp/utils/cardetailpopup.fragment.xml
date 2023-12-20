@@ -1,0 +1,81 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+>
+<Dialog
+    contentHeight="450px"
+    contentWidth="500px"
+    resizable="true" >
+    <content>
+
+    <form:SimpleForm editable="true">
+
+        <VBox >
+            <Image src="{carDetaisPopup>/Cimage}" width="150px" height="90px" />
+        
+            <Text text="{carDetaisPopup>/Name}" class="itemTitle" id="carName"/>
+             
+           
+        </VBox>
+        <Label/>
+        <!-- <HBox alignItems="Center"> -->
+     
+            <Label text="Id"/><Text text="{carDetaisPopup>/Id}" class="SpecificationfontsData" id="uId"/>
+            <Label text="Title"/><Text text="{carDetaisPopup>/Title}" class="SpecificationfontsData" id="uTitle"/>
+            <Label text="Type"/><Text text="{carDetaisPopup>/Type}" class="SpecificationfontsData" id="uType"/>
+            <Label text="Engine"/> <Text text="{carDetaisPopup>/Engine} cc" class="SpecificationfontsData" id="uEngine"/>
+            <Label text="Transmission"/>
+                <ComboBox  value="{carDetaisPopup>/Transmission}"
+                    required="true"  width="150px"  id="uTransmission" class="SpecificationfontsData" >
+                <items>
+                    <c:Item key="type"
+                        text="Automatic"
+                    />
+        
+                    <c:Item key="type"
+                        text="Manual"
+                    />
+                </items>
+            </ComboBox>
+            <Label text="Fuel"/> 
+                <ComboBox   value="{cardata>/Fuel}" class="SpecificationfontsData" id="uFuel"
+                    required="true"  >
+                <items>
+                    <c:Item key="type"
+                        text="Diesel"
+                    />
+    
+                    <c:Item key="type"
+                        text="Petrol"
+                    />
+                </items>
+            </ComboBox>
+            <Label text="Milage"/> <Input value="{carDetaisPopup>/Mileage} Km/hr" class="SpecificationfontsData" id="uMileage"/>
+            <Label text="Airbags"/><Input value="{carDetaisPopup>/Airbags}" class="SpecificationfontsData" id="uAirbags"/>
+            <Label text="Price"/><Input value="Rs.{carDetaisPopup>/Price}" class="SpecificationfontsData" id="uPrice"/>
+            <Label text="Quantity"/><Input value="{carDetaisPopup>/Qty}" class="SpecificationfontsData" id="uQty"/>
+            <Label text="Seat"/><Input value="{carDetaisPopup>/Seat}" class="SpecificationfontsData" id="uSeat"/>
+            
+        <!-- </HBox> -->
+    </form:SimpleForm>
+
+    </content>
+    <customHeader>
+    <Bar >
+        <contentLeft>
+            <Text text="Specifications" class="itemSpecific2"/>
+        </contentLeft>
+        <contentRight>
+    <Button icon="sap-icon://decline" press="oCarClose" id="oCarClose"/>
+
+        </contentRight>
+    </Bar>        
+    </customHeader>
+  <buttons>
+    <Button text="UPDATE" press="mUpdateOData" type="Emphasized"/>
+    <Button text="DELETE" press="mDeleteOData" type="Negative"/>
+  </buttons>
+    
+</Dialog>
+</c:FragmentDefinition>

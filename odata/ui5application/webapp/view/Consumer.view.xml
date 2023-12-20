@@ -1,0 +1,428 @@
+<mvc:View
+	controllerName="ui5application.controller.Consumer"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:c="sap.ui.core"
+>
+<App >
+
+<pages>
+<Page title="CONSUMER-PRODUCTS" titleAlignment="Center" backgroundDesign="Transparent">
+
+    <headerContent>
+            <Button icon="sap-icon://log" press="ConsumerLogout" class="ConsumerLogoutButton"/>
+        
+    </headerContent>
+
+<content>
+    
+    <IconTabBar upperCase="true" select="TabSelected">
+    
+        <items>
+        
+    <IconTabFilter  text="User-Panel" icon="sap-icon://tools-opportunity" key="UserPanel">
+
+            <!-- this tab for chart -->
+                
+                  <content>
+                    <!-- <Panel backgroundDesign="Transparent">
+                        <Text text="CUSTOMER-SPACE"/>
+                    </Panel> -->
+                
+                    <HBox>
+                        
+                       <VBox width="50%">
+                            <Text text="Personal-Details" class="PersonalDetailsText"/>
+                         
+                        <form:SimpleForm editable="true" >
+                                <Label text="Name"/><Text text="{userdata>/Name}"/>
+                                <Label text="Email"/><Text text="{userdata>/Email}"/>
+                                <Label text="Phone"/><Text text="{userdata>/Phone}"/>
+                                <Label text="State"/><Text text="{userdata>/State}"/>
+                                <Label text="City"/><Text text="{userdata>/City}"/>
+
+                        </form:SimpleForm>
+                       </VBox>
+
+                       <VBox width="50%">
+                    
+                        <Text text="Last-Purchase-Details" class="PurchaselDetailsText"/>
+                        <!-- <List items="{puchaseddata>/}">
+                            <ObjectListItem title="{puchaseddata>title}" intro="{puchaseddata>type}" number="{puchaseddata>price}" numberUnit="INR" icon="{puchaseddata>image}"/>
+                        </List> -->
+                        <Table   items="{puchaseddata>/}">
+                            <columns>
+                                <Column>
+                                    <Text text="CAR-TITLE"/>
+                                </Column>
+
+                                <!-- <Column>
+                                    <Text text="CAR-TYPE"/>
+                                </Column> -->
+
+                                <Column>
+                                    <Text text="CAR-PRICE"/>
+                                </Column>
+                                <Column>
+                                    <Text text="CAR-IMAGE"/>
+                                </Column>
+                            </columns>
+
+                            <items>
+                                <ColumnListItem
+                                    vAlign="Inherit"
+                                >
+                                    <cells>
+                                        <Text text="{puchaseddata>title}"/>
+                                    </cells>
+
+                                     <!-- <cells>
+                                        <Text text="{puchaseddata>type}"/>
+                                    </cells> -->
+
+                                     <cells>
+                                        <Text text="{puchaseddata>price}"/>
+                                    </cells>
+
+                                     <cells>
+                                        <Image src="{puchaseddata>image}" width="50px"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                       </VBox> 
+                    </HBox>
+
+             </content>
+                 
+            </IconTabFilter>
+
+        <IconTabFilter icon="sap-icon://product"
+            text="Products" key="Products">
+            <content>
+            
+            <Panel class="ConsumerPanel1" height="65px" >
+
+                    <HBox>
+                       <SearchField search='onSearch' type='text' enableSuggestions='true' suggestionItems='{search>/Cars}' suggest='onSuggest' width="1200px" >
+            <suggestionItems>
+                <SuggestionItem text="{search>title}" key="{search>title}" description="{search>type}" />
+            </suggestionItems>
+        </SearchField>
+                           
+                    </HBox>
+            </Panel>
+
+            
+                <SplitApp>
+                    <masterPages>
+                       <Panel backgroundDesign="Transparent">
+                            
+                        <List  items="{carsData>/cardata}" itemPress="oCategorySelect" backgroundDesign="Transparent" headerText="CATEGORIES" showUnread="true">
+                        
+                            <ObjectListItem title="{carsData>carType}" type="Active" />
+                        </List>
+                       </Panel>
+                    </masterPages>
+
+                    <detailPages>
+                    
+                       <Table   items="{carsData>}" id="ConsumerProductItemBind" mode="MultiSelect" selectionChange="oSelectedItems" >
+                            <columns>
+                                <Column>
+                                    <Text text="CAR-TITLE"/>
+                                </Column>
+
+                                <Column>
+                                    <Text text="CAR-TYPE"/>
+                                </Column>
+
+                                <Column>
+                                    <Text text="CAR-PRICE"/>
+                                </Column>
+                                <Column>
+                                    <Text text="CAR-IMAGE"/>
+                                </Column>
+                                 
+                            </columns>
+
+                            <items>
+                                <ColumnListItem
+                                    vAlign="Inherit"
+                                >
+                                    <cells>
+                                        <Text text="{carsData>title}"/>
+                                    </cells>
+
+                                     <cells>
+                                        <Text text="{carsData>type}"/>
+                                    </cells>
+
+                                     <cells>
+                                        <Text text="{carsData>price}"/>
+                                    </cells>
+
+                                     <cells>
+                                        <Image src="{carsData>image}" width="50px"/>
+                                    </cells>
+
+                                    
+                                </ColumnListItem>
+
+                               
+                            </items>
+                            
+                           
+                        </Table>
+                            <!-- <Text text="Welocme"/> -->
+
+
+                    
+                   
+                    </detailPages>
+                </SplitApp>
+            </content>
+        </IconTabFilter>
+
+        <IconTabFilter
+            icon="sap-icon://product" key="Bill"
+            text="Bill"
+        >
+            <content>
+              <!-- **********Billing part*********  -->
+                
+                 <SplitApp>
+                    <masterPages>
+                      
+                            <Page title="ACCESSORIES" titleAlignment="Center">               
+                
+                                <MultiComboBox
+                                    
+                                    placeholder="--Select--"
+                                    selectionFinish="oSelectedAcceries"
+
+                                >
+                                    <items>
+                                        <c:ListItem
+                                           text="Puncture Repair Kit 4500"
+                                           additionalText="madhu"
+                                           key="4500"
+                                        >
+                                            
+                                        </c:ListItem>
+
+                                        <c:ListItem
+                                           text="Car Cover 2700"
+                                           key="2700"
+                                        >
+                                            
+                                        </c:ListItem>
+
+                                        <c:ListItem
+                                           text="Seat Cover 1500"
+                                           key="2700"
+                                        >
+                                            
+                                        </c:ListItem>
+                                    </items>
+                                </MultiComboBox>
+                            <!-- <List mode="MultiSelect" id="AccItemsData" selectionChange="AccessoriesSelectionEvent">
+                                <ObjectListItem  title="Puncture Repair Kit" number="4500" numberUnit="INR" id="RepairKitAmount"/>
+                                <ObjectListItem title="Car Cover" number="2700" numberUnit="INR" id="CarCoverAmount"/>
+                                <ObjectListItem title="Seat Cover" number="1500" numberUnit="INR" id="SeatCoverAmount"/>
+                        
+                            </List>
+                                         -->
+                            <!-- <Button text="Add Items" class="AccBillButton" press="AddAccessris" type="Emphasized"/> -->
+                        
+                         </Page>
+                       
+                    </masterPages>
+
+                    <detailPages>
+                    
+                    <Page id="generateToPDF">
+                        <!-- <List id="oItemSelectedBill">
+                    
+                            <ObjectListItem id="ItemToBill" title="{carsData>title}" icon="{carsData>image}" type="Active" number="{carsData>price}" numberUnit="INR" intro="{carsData>type}"/>
+                                             
+                        </List> -->
+
+                <Table  id="oItemSelectedBill" items="{billdata>/}">
+                            <columns>
+                                <Column>
+                                    <Text text="CAR-TITLE" class="UserIdTexts"/>
+                                </Column>
+
+                                <Column>
+                                    <Text text="CAR-PRICE" class="UserIdTexts"/>
+                                </Column>
+                                <Column>
+                                    <Text text="CAR-IMAGE" class="UserIdTexts"/>
+                                </Column>
+                    
+                            </columns>
+
+                            <items>
+                                <ColumnListItem
+                                    vAlign="Inherit"
+                                >
+                                    <cells>
+                                        <Text text="{billdata>title}"/>
+                                    </cells>
+
+                                    <cells>
+                                        <Text text="{billdata>price}"/>
+                                    </cells>
+
+                                     <cells>
+                                        <Image src="{billdata>image}" width="80px"/>
+                                    </cells>
+
+                                    <cells>
+                                        <Button icon="sap-icon://delete" type="Reject"/>
+                                    </cells>
+                                </ColumnListItem>
+                                
+                            </items>
+
+                        </Table>
+                        
+
+                    <!-- <form:SimpleForm editable="true" width="500px" class="TotalAmountText2"> -->
+
+                        <Label text="Total Amount : " class="TotalAmountText"/><Text text="" id="TotalAmount" class="TotalAmountText2"/>
+
+                    <!-- </form:SimpleForm> -->
+                    
+                    
+                   </Page>
+                    
+                   
+                    </detailPages> 
+                    
+                 </SplitApp>
+                  
+            
+            </content>
+        </IconTabFilter>
+
+        <IconTabFilter icon="sap-icon://pushpin-on" text="TICKET" key="Ticket">
+            <content>
+                   
+            <Text text="GENERATE-NEW-TICKETS" class="UserIdTexts"/>
+                <form:SimpleForm editable="true" >
+                        <Label text="PRODUCT-CATEGORY"/>
+                        <ComboBox placeholder="--SELECT--" width="250px" items="{ticket>/type}" id="ProductCategory">
+                            <items>
+                                <c:Item key="type" text="{ticket>name}" />
+                                
+                            </items>
+                        </ComboBox>
+
+                        <Label text="PRODUCT-NAME"/>
+                        <ComboBox placeholder="--SELECT--" width="250px" items="{ticket>/Name}" id="ProductName">
+                            <items>
+                                <c:Item key="BMW" text="{ticket>name}" />
+                                
+                            </items>
+                        </ComboBox>
+
+                        <Label text="PRODUCT-MODEL"/>
+                        <ComboBox placeholder="--SELECT--" width="250px" items="{ticket>/Model}" id="ProductModel">
+                            <items>
+                                <c:Item key="type" text="{ticket>name}" />
+                                
+                            </items>
+                        </ComboBox>
+                        <Label/>
+                        <Label text="PRODUCT-QUANTITY"/><Input placeholder="How Many Quantities" id="ProductQty" width="250px" type="Number"/>
+                        <Label/>
+                        <Button text="Submit" type="Emphasized" width="250px" press="OTicketReq"/>
+                </form:SimpleForm>
+
+            <Table items="{ticket>/newTickets}">
+                <columns>
+                    <Column>
+                        <Text text="PRODUCT-CATEGORY"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="PRODUCT-NAME"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="PRODUCT-MODEL"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="PRODUCT-QUANTITIES"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="STATUS"/>
+                    </Column>
+                </columns>
+
+                    <items>
+                        <ColumnListItem
+                            vAlign="Inherit"
+                        >
+                            <cells>
+                                <Text text="{ticket>pcat}"/>
+                            </cells>
+
+                            <cells>
+                                <Text text="{ticket>pname}"/>
+                            </cells>
+
+                            <cells>
+                                <Text text="{ticket>pmodel}"/>
+                            </cells>
+
+                            <cells>
+                                <Text text="{ticket>pQty}"/>
+                            </cells>
+
+                            <cells>
+                                <Text text="{ticket>status}"/>
+                            </cells>
+
+                        </ColumnListItem>
+                    </items>
+            </Table>
+            
+           </content>
+        </IconTabFilter>
+        </items>
+    </IconTabBar>
+
+
+    </content>
+<footer>
+        <Bar
+            design="Auto"
+        >
+            <contentLeft>
+                
+            </contentLeft>
+            <contentMiddle>
+            </contentMiddle>
+            <contentRight>
+                <Button text="Add to Bill" visible="false" press="oBillItems" type="Emphasized" icon="sap-icon://add" id="AddtoBillButton"/>
+               
+                <Button text="PAY-BILL" press="OPayment"  id="BillGenerate" type="Emphasized" visible="false"/>
+               
+                <!-- <Button text="INVOICE" visible="false" icon="sap-icon://receipt" type="Emphasized" id="invoice" press="invoicePopup"/>     -->
+            </contentRight>
+        </Bar>
+</footer>
+    
+  </Page>  
+</pages>
+</App>
+</mvc:View>

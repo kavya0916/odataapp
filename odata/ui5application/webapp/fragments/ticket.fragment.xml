@@ -1,0 +1,107 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>
+<Dialog state="Information">
+    <beginButton>
+        
+    </beginButton>
+    <buttons>
+    
+    </buttons>
+    <content>
+
+    <!-- <Panel visible="false" backgroundDesign="Transparent">
+        <Text text="Quantities Available :" /><Text text="" id="QuantityText"/>
+        
+        <List mode="SingleSelectLeft">
+        <ObjectListItem title="" icon="" intro=""  number="" numberUnit="INR"  visible="true" id="ticketToAdmin"/>
+       
+        </List>
+    </Panel> -->
+
+    <Table items="{ticket>/newTickets}" width="850PX" mode="MultiSelect" selectionChange="oTicketSelected" >
+                <columns>
+                    <Column>
+                        <Text text="CATEGORY"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="NAME"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="MODEL"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="QUANTITIES"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="ACCEPT"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="REJECT"/>
+                    </Column>
+
+                </columns>
+
+                    <items>
+                        <ColumnListItem
+                            vAlign="Inherit"
+                        >
+                            <cells>
+                                <Text text="{ticket>pcat}"/>
+                            </cells>
+
+                            <cells>
+                                <Text text="{ticket>pname}"/>
+                            </cells>
+
+                            <cells>
+                                <Text text="{ticket>pmodel}"/>
+                            </cells>
+
+                            <cells>
+                                <Text text="{ticket>pQty}"/>
+                            </cells>
+
+                              <cells>
+                                <Button text="Accept" press="oTicketAccept" type="Accept"/>
+                            </cells>
+
+                              <cells>
+                            
+                                <Button text="Reject" press="oTicketReject" type="Reject"/>
+                                
+                            </cells>
+
+
+                        </ColumnListItem>
+                    </items>
+            </Table>
+    </content>
+    <customHeader>
+        <Bar
+            design="Auto"
+        >
+            <contentLeft>
+                <Text text="TICKETS"/>
+            </contentLeft>
+            <contentMiddle>
+            </contentMiddle>
+            <contentRight>
+    <Button icon="sap-icon://decline" press="OTicketClose"/>
+
+            </contentRight>
+        </Bar>
+    </customHeader>
+    <endButton>
+    
+    </endButton>
+    <subHeader>
+    </subHeader>
+</Dialog>
+</c:FragmentDefinition>

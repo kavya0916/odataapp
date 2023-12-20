@@ -1,0 +1,73 @@
+<c:FragmentDefinition xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+
+<Dialog contentWidth="600px" 
+contentHeight="330px"
+ title="SIGNUP-FORM" titleAlignment="Center">
+
+    <beginButton>
+        <Button text="Close" press="oClose" />
+    </beginButton>
+    <buttons>
+    </buttons>
+    <content>
+        
+             <form:SimpleForm editable="true" class="SignupForm" width="600px" >
+                <Label text="Name" class="FormLabels"/><Input placeholder="Name"   id="UserName" liveChange="SignupUserName"/>
+                <Label text="Phone" class="FormLabels"/><Input placeholder="Phone number" type="Number" id="UserPhone" liveChange="SignupUserPhone"/>
+                <Label text="Email" class="FormLabels"/><Input placeholder="Email" type="Email" id="UserEmail" liveChange="SignupUserEmail"/>
+                <Label text="City" class="FormLabels"/> <ComboBox   placeholder="--Select--"
+                     required="true" id="UserCity">
+                <items>
+                    <c:Item key="state"
+                        text="Banglore"
+                    />
+                    <c:Item key="state"
+                        text="Hydrabad"
+                    />
+
+                    <c:Item key="state"
+                        text="Mombai"
+                    />
+                    <c:Item key="state"
+                        text="Chennai"
+                    />
+                </items>
+        </ComboBox>
+    
+    <Label text="State" class="FormLabels"/>
+        <ComboBox   placeholder="--Select--"
+                     required="true" id="UserState">
+                <items>
+                    <c:Item key="state"
+                        text="Karnataka"
+                    />
+                    <c:Item key="state"
+                        text="Telangana"
+                    />
+
+                    <c:Item key="state"
+                        text="Maharastra"
+                    />
+                    <c:Item key="state"
+                        text="Tamilnadu"
+                    />
+                </items>
+        </ComboBox>
+
+    </form:SimpleForm>
+    
+        <Button text="Register" class="SignupCreateButton" press="oCreateAccount"/>
+
+        <Panel visible="false" id="IdPanel" backgroundDesign="Transparent">
+        <form:SimpleForm editable="true" class="SignupUserId">
+            <Label text="ID" class="UserIdTexts"/><Text id="UserIdText" class="UserIdTexts"/>
+        </form:SimpleForm>
+        
+        </Panel>
+    </content>
+    <subHeader>
+    </subHeader>
+</Dialog>
+</c:FragmentDefinition>
